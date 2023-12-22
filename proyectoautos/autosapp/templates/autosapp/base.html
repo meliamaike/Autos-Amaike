@@ -12,45 +12,101 @@
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <!-- CSS -->   
     <link rel="stylesheet" href="{% static 'autosapp/css/styles.css' %}">
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    
 </head>
 <body>
 
-<!-- Navbar for Mobile -->
-<nav class="navbar d-lg-none navbar-light bg-light mobile-nav-bar">
-    <!-- Logo on the left side -->
-    <a class="navbar-brand">
+<!-- Navbar Mobile -->
+<nav class="navbar d-lg-none navbar-light bg-light mobile-nav-bar pr-0 pl-0 mx-0 mb-0 pb-0">
+    <!-- Logo -->
+    <a class="navbar-brand ml-3">
         <img src="../../media/autosapp/images/Logo.png" alt="Logo">
     </a>
-
-    <!-- Hamburger Menu Button-->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" style="display: block !important; border: none;">
-        <i class="fa fa-bars" style="color:black;"></i>
+        <i class="fa fa-bars" style="color:black;font-size:21px;"></i>
     </button>
 
-    <!-- Mobile Navigation Menu -->
+    <!-- Mobile Menu -->
+
     <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-            <!-- Modelos Button -->
-            <li class="nav-item">
+        <ul class="navbar-nav mx-3" style="text-align: right;">
+            <button class="btn btn-link navbar-btn ml-auto" data-toggle="collapse" data-target=".navbar-collapse" style="color: black; font-size: 14px;">
+                Cerrar <i class="fa fa-times" style="color: black;font-size:21px;"></i>
+            </button>
+        </ul>
+        <ul class="navbar-nav mx-5" style="text-align: right;">
+            <li class="nav-item mt-3">
                 <a class="nav-link" href="{% url 'home_modelos' %}">Modelos</a>
             </li>
-
-            <!-- Ficha de Modelo Button -->
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'ficha_modelo' pk=1 %}">Ficha de Modelo</a>
+                <a class="nav-link" href="#">Servicios y Accesorios</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Financiación</a>
+            </li>
+            <li class="nav-item mb-3">
+                <a class="nav-link" href="#">Reviews y Comunidad</a>
             </li>
         </ul>
+        <hr class="line-divider-nav">
+        <ul class="navbar-nav mx-5" style="text-align: right;">
+            <li class="nav-item mt-3">
+                <a class="nav-link" href="#">Toyota Mobility Service</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Toyota Gazoo Racing</a>
+            </li>
+            <li class="nav-item mb-3">
+                <a class="nav-link" href="#">Toyota Híbridos</a>
+            </li>
+        </ul>
+        <hr class="line-divider-nav" style="text-align: right;">
+        <ul class="navbar-nav mx-5" style="text-align: right;">
+            <li class="nav-item mt-3">
+                <a class="nav-link" href="#">Concesionarios</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Test Drive</a>
+            </li>
+            <li class="nav-item mb-3">
+                <a class="nav-link" href="#">Contacto</a>
+            </li>
+        </ul>
+        <div class="submenu" style="text-align: right;">
+            <ul class="list-unstyled mr-5 ml-5 mb-0">
+                <li class="nav-item pt-3">
+                    <a class="nav-link" style="padding-right: 0!important;padding-left: 0!important;" href="#">Actividades</a>
+                </li>
+                <li class="nav-item px-0">
+                    <a class="nav-link" style="padding-right: 0!important;padding-left: 0!important;" href="#">Servicios al Cliente</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="padding-right: 0!important;padding-left: 0!important;" href="#">Ventas Especiales</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="padding-right: 0!important;padding-left: 0!important;" href="#">Innovación</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="padding-right: 0!important;padding-left: 0!important;" href="#">Prensa</a>
+                </li>
+                <li class="nav-item pb-5">
+                    <a class="nav-link" style="padding-right: 0!important;padding-left: 0!important;" href="#">Acerca de...</a>
+                </li>
+            </ul>
+        </div>
     </div>
+    
+    
+    
+    
 </nav>
 
-<!-- Navbar for Web -->
+<!-- Navbar Web -->
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light web-nav-bar">
-    <!-- Logo on the left side -->
     <a class="navbar-brand mr-5 ml-4" href="#">
         <img src="../../media/autosapp/images/Logo.png" alt="Logo">
     </a>
-
     <ul class="navbar-nav mr-auto">
         <li class="nav-item">
             <a class="nav-link mr-4 ml-4 mt-3 mb-3 custom-nav-link {% if active_link == 'modelos' %}active{% endif %}" href="{% url 'home_modelos' %}" id="modelos-link"><strong>Modelos</strong></a>
@@ -59,24 +115,88 @@
             <a class="nav-link mr-4 ml-4 mt-3 mb-3 custom-nav-link {% if active_link == 'ficha' %}active{% endif %}" href="{% url 'ficha_modelo' pk=1 %}" id="ficha-link"><strong>Ficha de Modelo</strong></a>
         </li>
     </ul>
-
-    <!-- Title next to the hamburger menu -->
-    <span class="navbar-text ml-2">Menú</span>
-    <!-- Hamburger Menu Button -->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavWeb" aria-controls="navbarNavWeb" aria-expanded="false" aria-label="Toggle navigation" style="display: block !important; border: none;" >
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavWeb" aria-controls="navbarNavWeb" aria-expanded="false" aria-label="Toggle navigation" style="display: block !important; border: none;">
         <i class="fa fa-bars" style="color:black;"></i>
     </button>
+    <div class="collapse navbar-collapse2" id="navbarNavWeb">
+        <div class="overlay"></div> <!-- Overlay to cover the content -->
+        <ul class="navbar-nav mx-2" style="text-align: right;">
+            <button class="btn btn-link navbar-btn ml-auto" data-toggle="collapse" data-target=".navbar-collapse2" style="color: black; font-size: 14px;">
+                Cerrar <i class="fa fa-times" style="color: black; font-size: 21px;"></i>
+            </button>
+        </ul>
+        <ul class="navbar-nav mx-5" style="text-align: right;flex-direction: column;">
+            <li class="nav-item-web mt-3">
+                <a class="nav-link pb-0" href="{% url 'home_modelos' %}">Modelos</a>
+            </li>
+            <li class="nav-item-web">
+                <a class="nav-link pb-0" href="#">Servicios y Accesorios</a>
+            </li>
+            <li class="nav-item-web">
+                <a class="nav-link pb-0" href="#">Financiación</a>
+            </li>
+            <li class="nav-item-web mb-3">
+                <a class="nav-link pb-0" href="#">Reviews y Comunidad</a>
+            </li>
+        </ul>
+        <hr class="line-divider-nav">
+        <ul class="navbar-nav mx-5" style="text-align: right;flex-direction: column;">
+            <li class="nav-item-web mt-3">
+                <a class="nav-link pb-0" href="#">Toyota Mobility Service</a>
+            </li>
+            <li class="nav-item-web">
+                <a class="nav-link pb-0" href="#">Toyota Gazoo Racing</a>
+            </li>
+            <li class="nav-item-web mb-3">
+                <a class="nav-link pb-0" href="#">Toyota Híbridos</a>
+            </li>
+        </ul>
+        <hr class="line-divider-nav" style="text-align: right;">
+        <ul class="navbar-nav mx-5" style="text-align: right;flex-direction: column;">
+            <li class="nav-item-web mt-3">
+                <a class="nav-link pb-0" href="#">Concesionarios</a>
+            </li>
+            <li class="nav-item-web">
+                <a class="nav-link pb-0" href="#">Test Drive</a>
+            </li>
+            <li class="nav-item-web mb-3">
+                <a class="nav-link pb-0" href="#">Contacto</a>
+            </li>
+        </ul>
+        <div class="submenu" style="text-align: right;flex-direction: column;">
+            <ul class="list-unstyled mr-5 ml-5 mb-0">
+                <li class="nav-item-web pt-3">
+                    <a class="nav-link pb-0" style="padding-right: 0!important;padding-left: 0!important;" href="#">Actividades</a>
+                </li>
+                <li class="nav-item-web px-0">
+                    <a class="nav-link pb-0" style="padding-right: 0!important;padding-left: 0!important;" href="#">Servicios al Cliente</a>
+                </li>
+                <li class="nav-item-web">
+                    <a class="nav-link pb-0" style="padding-right: 0!important;padding-left: 0!important;" href="#">Ventas Especiales</a>
+                </li>
+                <li class="nav-item-web">
+                    <a class="nav-link pb-0" style="padding-right: 0!important;padding-left: 0!important;" href="#">Innovación</a>
+                </li>
+                <li class="nav-item-web">
+                    <a class="nav-link pb-0" style="padding-right: 0!important;padding-left: 0!important;" href="#">Prensa</a>
+                </li>
+                <li class="nav-item-web pb-5">
+                    <a class="nav-link pb-0" style="padding-right: 0!important;padding-left: 0!important;" href="#">Acerca de...</a>
+                </li>
+            </ul>
+        </div>
+    </div>
 </nav>
-
-    
+     
 <div class="main-container">
   
-        {% block content %}{% endblock %}
+    {% block content %}{% endblock %}
 </div>
-<footer class="bg-dark text-light text-center py-3" style= "background-color:black!important;">
-  </footer
+<footer class="bg-dark text-light text-center py-3" style= "background-color:black!important;"></footer>
+
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
 <!-- Popper.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -84,76 +204,10 @@
 <!-- Bootstrap JS -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-
-
+<script src="{% static 'autosapp/js/scripts.js' %}"></script>
 
 </body>
 
-
-
-
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        var ordenDropdown = document.getElementById('ordenDropdown');
-        var ordenIcon = document.getElementById('ordenIcon');
-
-        ordenDropdown.addEventListener('click', function (e) {
-            if(ordenIcon.classList.contains('fa-angle-down')){
-                ordenIcon.classList.remove('fa-angle-down');
-                ordenIcon.classList.add('fa-angle-up');
-            }else{
-                ordenIcon.classList.remove('fa-angle-up');
-                ordenIcon.classList.add('fa-angle-down');
-            }
-        });
-    });
-    document.addEventListener('DOMContentLoaded', function () {
-        var ordenDropdown = document.getElementById('ordenDropdown2');
-        var ordenIcon = document.getElementById('ordenIcon2');
-
-        ordenDropdown.addEventListener('click', function (e) {
-            if(ordenIcon.classList.contains('fa-angle-down')){
-                ordenIcon.classList.remove('fa-angle-down');
-                ordenIcon.classList.add('fa-angle-up');
-            }else{
-                ordenIcon.classList.remove('fa-angle-up');
-                ordenIcon.classList.add('fa-angle-down');
-            }
-        });
-    });
-    document.addEventListener('DOMContentLoaded', function () {
-        var ordenDropdown = document.getElementById('ordenDropdown3');
-        var ordenIcon = document.getElementById('ordenIcon3');
-        console.log(ordenDropdown)
-        console.log(ordenIcon)
-
-        ordenDropdown.addEventListener('click', function (e) {
-            console.log('sdfasdf',e.target)
-            if(ordenIcon.classList.contains('fa-angle-down')){
-                ordenIcon.classList.remove('fa-angle-down');
-                ordenIcon.classList.add('fa-angle-up');
-            }else{
-                ordenIcon.classList.remove('fa-angle-up');
-                ordenIcon.classList.add('fa-angle-down');
-            }
-        });
-    });
-
-    document.addEventListener('DOMContentLoaded', function () {
-        const customOptions = document.querySelectorAll('.custom-options .dropdown-item');
-
-        customOptions.forEach(function (option) {
-            option.addEventListener('click', function (event) {
-                event.preventDefault();
-                const selectedValue = this.getAttribute('data-value');
-                document.getElementById('selected_order').value = selectedValue;
-                document.getElementById('filterForm').submit();
-            });
-        });
-    });
-    
-
-  </script>
 </html>
 
 
