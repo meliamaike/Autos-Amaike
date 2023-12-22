@@ -1,0 +1,112 @@
+{% extends 'autosapp/base.html' %}
+{% load static %}
+{% load humanize %}
+{% load i18n %}
+{% load l10n %}
+
+{% block title %}Modelos{% endblock %}
+
+{% block content %}
+
+<div class="container home-modelo-container">
+    <h2 class= "mt-5 mb-5 pt-4 pb-4 home-modelo-title">Descubrí todos los modelos</h2>
+
+      <!-- Mobile View -->
+  <div class="row">
+    <div class="col-6 d-md-none">
+      <div class="dropdown">
+        <button class="btn" type="button" id="ordenDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Filtrar por <i id="ordenIcon" class="fa fa-angle-down"></i>
+        </button>
+        
+        <div class="dropdown-menu" aria-labelledby="filtroTipoDropdown">
+          {% for choice in tipos %}
+            <a class="dropdown-item" href="{% url 'home_modelos' %}?tipo={{ choice.0 }}">{{ choice.1 }}</a>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    <div class="col-6 d-md-none text-right align-items-start">
+      <div class="dropdown mobile-order">
+        <form method="get" action="{% url 'home_modelos' %}" id="filterForm">
+            <div class="btn-group">
+                <button class="btn" type="button" id="ordenDropdown2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Ordenar por <i id="ordenIcon2" class="fa fa-angle-down"></i>
+                </button>
+                <div class="dropdown-menu mobile-dropdown" aria-labelledby="ordenDropdown">
+                    <div class="custom-options">
+                        <a href="#" class="dropdown-item" data-value="">Nada</a>
+                        <a href="#" class="dropdown-item" data-value="precio">De <strong>menor</strong> a <strong>mayor</strong> precio</a>
+                        <a href="#" class="dropdown-item" data-value="-precio">De <strong>mayor</strong> a <strong>menor</strong> precio</a>
+                        <a href="#" class="dropdown-item" data-value="-anio">Más <strong>nuevos</strong> primero</a>
+                        <a href="#" class="dropdown-item" data-value="anio">Más <strong>viejos</strong> primero</a>
+                    </div>
+                </div>
+                <input type="hidden" name="orden" id="selected_order" value="">
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  
+
+  <div class="row">
+        <div class="col-md-10 d-none d-md-block">
+            <div class="d-flex justify-content-start align-items-center"">
+                <span class= "mr-5"> <strong>Filtrar por</strong></span>
+                <a href="{% url 'home_modelos' %}" class="btn custom-btn {% if not selected_tipo %}active{% endif %} ml-5 mr-4" data-tipo="">Todos</a>
+                {% for choice in tipos %}
+                    <a href="{% url 'home_modelos' %}?tipo={{ choice.0 }}" class="btn custom-btn {% if choice.0 == selected_tipo %}active{% endif %} ml-2 mr-2" data-tipo="{{ choice.0 }}">{{ choice.1 }}</a>
+                {% endfor %}
+            </div>
+        </div>
+
+    
+        <div class="col-md-2 d-none d-md-block text-right">
+            <div class="dropdown">
+
+                <form method="get" action="{% url 'home_modelos' %}" id="filterForm">
+                    <div class="btn-group">
+                        <button class="btn" type="button" id="ordenDropdown3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Ordenar por <i id="ordenIcon3" class="fa fa-angle-down"></i>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="ordenDropdown">
+                            <div class="custom-options">
+                                <a href="#" class="dropdown-item" data-value="">Nada</a>
+                                <a href="#" class="dropdown-item" data-value="precio">De <strong>menor</strong> a <strong>mayor</strong> precio</a>
+                                <a href="#" class="dropdown-item" data-value="-precio">De <strong>mayor</strong> a <strong>menor</strong> precio</a>
+                                <a href="#" class="dropdown-item" data-value="-anio">Más <strong>nuevos</strong> primero</a>
+                                <a href="#" class="dropdown-item" data-value="anio">Más <strong>viejos</strong> primero</a>
+                            </div>
+                        </div>
+                        <input type="hidden" name="orden" id="selected_order" value="">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <hr class= "line-divider">
+
+  <!-- Autos list -->
+  <div class="row mt-5 mb-5 pt-2 pb-2">
+    {% for auto in autos %}
+      <div class="col-12 col-md-3 col-sm-6 mb-5 auto-container">
+        <div class="d-flex flex-column align-items-center">
+          <h3 class="text-center auto-modelo" style="font-weight: 600 !important;">{{ auto.modelo }}</h3>
+          {% language 'de' %}
+          <p class="text-center">{{ auto.anio }} | ${{ auto.precio|intcomma }}</p>
+          {% endlanguage %}
+          <img src="{{ auto.foto.url }}" alt="{{ auto.modelo }}" class="mr-3">
+          
+          <a href="{% url 'ficha_modelo' pk=1 %}" class="btn btn-dark btn-sm rounded-pill mt-2 pr-4 pl-4 auto-button">Ver Modelo</a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  </div>
+  
+  
+  
+{% endblock %}
+

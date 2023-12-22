@@ -1,0 +1,211 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+   
+}
+
+.home-modelo-container{
+    max-width:90vw;
+}
+
+.custom-btn {
+    border-radius: 15px;
+    transition: background-color 0.3s ease;
+  }
+  
+.custom-btn.active {
+    background-color: #F7F7F7;
+    
+}
+
+.web-navbar{
+    max-height: 70px;
+}
+
+.navbar-text {
+    color: #191919!important;
+}
+
+.custom-nav-link {
+    color: #191919!important;
+    text-decoration: none;
+}
+
+.custom-nav-link.active {
+    color: #EB0A1E!important;
+    border-bottom: 3px solid #EB0A1E;
+    padding-bottom: 15%;
+    margin-bottom: 0 !important;
+}
+
+.auto-button {
+    display: none;
+}
+.auto-container:hover .auto-button {
+display: inline-block !important;
+}
+
+.auto-container:hover .auto-modelo {
+    color: #EB0A1E!important;
+}
+
+.dropdown-item {
+    border-bottom: 1px solid #D8D8D8;
+    padding-top:13px;
+    padding-bottom:13px;
+}
+
+.dropdown-item:last-child {
+    border-bottom: none; 
+}
+
+.web-navbar{
+    display:none!important;
+}
+
+.custom-options .dropdown-item, .dropdown-menu .dropdown-item {
+    font-size: 10px;
+    
+}
+
+.line-divider{
+    height:2px;
+    border-width:0;
+    color:#D8D8D8;
+    background-color:#D8D8D8
+}
+
+.auto-modelo-title{
+    font-weight: 600;
+    font-size: 20px;
+}
+.auto-info{
+    font-weight: 600;
+    font-size: 35px;
+}
+
+.auto-info-p{
+    line-height: 1.5;
+}
+
+.carousel-indicators {
+    position: absolute;
+    bottom: -105px; 
+    margin-top: 5px; 
+}
+
+.slider-container{
+    height: 452px;
+    background-color: #F7F7F7;
+
+}
+
+.carousel-item-title{
+    font-size: 20px;
+    font-weight: 600;
+
+}
+.carousel-p{
+    font-size:16px;
+}
+.carousel-indicators li {
+    background-color: #C5C5C5 !important; 
+    border-radius: 50% !important; 
+    width: 10px !important; 
+    height: 10px !important; 
+    margin-right: 10px !important; 
+    margin-left: 20px !important;
+}
+
+.carousel-indicators .active {
+    background-color: #4A4A4A !important;
+    width: 40px !important; 
+    height: 8px !important; 
+    
+}
+
+.title-sub-images{
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.mobile-web-sliders{
+    background-color:#F7F7F7;
+}
+
+.custom-slider-image {
+    width: 500px !important;
+    height: 140px !important; 
+}
+
+
+@media (max-width: 991px) {
+    .web-nav-bar {
+        display: none;
+    }
+
+    .home-modelo-title{
+        font-size: 35px!important;
+        font-weight: 600;
+    }
+}
+
+
+@media (min-width: 992px) {
+    .navbar.mobile-nav-bar {
+        display: none;
+    }
+
+    .home-modelo-title{
+        font-size:50px;
+        font-weight: 700; 
+        color:#373737;
+    }
+
+    .carousel-control-prev, .carousel-control-next{
+        width: 45px !important;
+        bottom:155px;
+    }
+
+    .auto-hilux{
+        width: 559px;
+    }
+
+    .auto-info{
+        font-size: 50px;
+    }
+    .auto-info-p{
+        margin-right:155px;
+        margin-top:35px;
+    }
+
+    .ficha-modelo-extra-info-1{
+        margin-right:14%;
+        margin-left:14%;
+    }
+
+    .random-image-2{
+        width:800px;
+        height: 296px;
+    }
+    .random-image-1{
+        width:559px;
+        height:295px;
+    }
+    .sub-image-p-1{
+        margin-right:70px;
+    }
+    .title-sub-images{
+        margin-top:94px!important;
+    }
+    .sub-image-p-2{
+        margin-right:201px;
+    }
+   
+}
+
+
+
+
+
